@@ -13,6 +13,13 @@ resource "aws_instance" "instance" {
   instance_type = var.instance_type
   key_name      = aws_key_pair.deployer.key_name
 
+  metadata_options {
+    http_tokens = "required"
+  }
+
+  root_block_device {
+    encrypted = true
+  }
   tags = {
     Name  = var.instance_name
     Owner = var.owner
