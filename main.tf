@@ -1,6 +1,6 @@
 resource "aws_key_pair" "deployer"{
   key_name="${var.instance_name}-key"
-  public_key=file("${path.module}/id_rsa.pub")
+  public_key=file("${path.root}/id_rsa.pub")
 }
 
 resource "aws_instance" "instance"{
