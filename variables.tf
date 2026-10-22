@@ -18,3 +18,12 @@ variable "ami" {
   type    = string
   default = "ami-08c46876c64a927b8"
 }
+
+variable "docker_image" {
+  type = string
+}
+
+variable "app_ingress_cidr" {
+  type    = string
+  default = "0.0.0.0/0"
+}
