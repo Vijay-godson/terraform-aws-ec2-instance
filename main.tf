@@ -17,14 +17,15 @@ resource "aws_security_group" "app" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = [var.app_ingress_cidr] #tfsec:ignore:aws-vpc-no-public-ingress-sg
+    cidr_blocks = [var.app_ingress_cidr]
   }
 
   egress {
+    description = "Outbound for image pulls, DNS and updates"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"] #tfsec:ignore:aws-vpc-no-public-egress-sg
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {
