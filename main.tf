@@ -9,5 +9,6 @@ resource "aws_instance" "instance"{
  key_name=aws_key_pair.deployer.key_name
   tags = {
   Name=var.instance_name
+  owner=var.owner
  } 
 }
