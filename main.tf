@@ -7,7 +7,7 @@ resource "aws_instance" "instance"{
  ami = var.ami
  instance_type = var.instance_type
  key_name=aws_key_pair.deployer.key_name
-  tags{
+  tags = {
   Name=var.instance_name
  } 
 }
