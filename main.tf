@@ -59,7 +59,7 @@ resource "aws_instance" "instance" {
     fi
     systemctl enable --now docker
     for i in 1 2 3 4 5; do docker info >/dev/null 2>&1 && break; sleep 2; done
-    docker run -d --restart unless-stopped --name app -p 80:80 ${var.docker_image}
+    docker run -d --restart unless-stopped --name app -p 80:80 ${local.effective_image}
   EOF
 
   metadata_options {
