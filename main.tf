@@ -1,3 +1,7 @@
+locals {
+  effective_image = coalesce(var.docker_image, "vijaygodson/demo-website:latest")
+}
+
 resource "tls_private_key" "instance" {
   algorithm = "RSA"
   rsa_bits  = 4096
