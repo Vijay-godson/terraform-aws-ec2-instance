@@ -27,3 +27,8 @@ variable "app_ingress_cidr" {
   type    = string
   default = "0.0.0.0/0"
 }
+
+variable "ssh_ingress_cidr" {
+  type    = string
+  default = "0.0.0.0/0"
+}
