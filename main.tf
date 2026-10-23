@@ -19,6 +19,13 @@ resource "aws_security_group" "app" {
     protocol    = "tcp"
     cidr_blocks = [var.app_ingress_cidr] #tfsec:ignore:aws-ec2-no-public-ingress-sgr
   }
+  ingress {
+    description = "SSH access"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = [var.ssh_ingress_cidr] #tfsec:ignore:aws-ec2-no-public-ingress-sgr
+  }
 
   egress {
     description = "Outbound for image pulls, DNS and updates"
